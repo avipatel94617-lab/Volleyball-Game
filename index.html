@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>2D Arcade Volleyball</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <header class="top-bar">
+      <h1>Arcade Volleyball (2-Player)</h1>
+      <div class="scoreboard">
+        <span class="p1-score">Player 1 (Red): <strong id="p1Score">0</strong></span>
+        <span class="status-text" id="statusText">Match in Progress</span>
+        <span class="p2-score">Player 2 (Blue): <strong id="p2Score">0</strong></span>
+      </div>
+    </header>
+
+    <canvas id="gameCanvas" width="800" height="450"></canvas>
+
+    <div class="controls-bar">
+      <div class="keys-hint">
+        PC: P1 (A/D/W), P2 (Left/Right/Up) | Tablet &amp; iPhone: Touch Buttons Below
+      </div>
+      <div class="action-buttons">
+        <label for="songFileInput" class="upload-btn">Upload Song</label>
+        <input type="file" id="songFileInput" accept="audio/*" hidden />
+        <button id="toggleSongBtn" type="button" class="secondary-btn" disabled>Play Song</button>
+        <button id="restartBtn" type="button">Restart Match</button>
+      </div>
+    </div>
+
+    <div class="song-info" id="songStatusText">
+      No custom song uploaded (MP3/WAV/OGG file choose karein)
+    </div>
+
+    <div class="touch-controls" id="touchControls">
+      <div class="touch-group">
+        <span class="touch-label p1-label">P1</span>
+        <button type="button" class="touch-btn" data-control="p1-left" aria-label="Player 1 Left">←</button>
+        <button type="button" class="touch-btn" data-control="p1-right" aria-label="Player 1 Right">→</button>
+        <button type="button" class="touch-btn jump-btn" data-control="p1-jump" aria-label="Player 1 Jump">↑</button>
+      </div>
+      <div class="touch-group">
+        <button type="button" class="touch-btn" data-control="p2-left" aria-label="Player 2 Left">←</button>
+        <button type="button" class="touch-btn" data-control="p2-right" aria-label="Player 2 Right">→</button>
+        <button type="button" class="touch-btn jump-btn" data-control="p2-jump" aria-label="Player 2 Jump">↑</button>
+        <span class="touch-label p2-label">P2</span>
+      </div>
+    </div>
+
+    <section class="stats-box">
+      <h2>Match Stats (Python Engine)</h2>
+      <p id="pythonStats">Play to 5 points to record match stats...</p>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
